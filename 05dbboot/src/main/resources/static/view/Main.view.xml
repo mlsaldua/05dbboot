@@ -1,0 +1,78 @@
+<mvc:View xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form" xmlns:core="sap.ui.core"
+	controllerName="capm.controller.Main">
+	<Page title="Main View">
+		<f:SimpleForm id="SimpleFormChange354"
+			editable="true"
+			layout="ResponsiveGridLayout"
+			title="Vendor"
+			labelSpanXL="3"
+			labelSpanL="3"
+			labelSpanM="3"
+			labelSpanS="12"
+			adjustLabelSpan="false"
+			emptySpanXL="4"
+			emptySpanL="4"
+			emptySpanM="4"
+			emptySpanS="0"
+			columnsXL="1"
+			columnsL="1"
+			columnsM="1"
+			singleContainerFullSize="false" >
+			<f:content>
+				<Label text="Company Name" />
+				<Input id="name" value="{vendorModel>/postPayload/companyName}" />
+				<Label text="First Name" />
+				<Input value="{vendorModel>/postPayload/firstName}"/>
+				<Label text="Last Name"/>
+				<Input value="{vendorModel>/postPayload/lastName}"/>
+				<Label text="Website" />
+				<Input value="{vendorModel>/postPayload/website}"/>
+				<Label text="Email" />
+				<Input value="{vendorModel>/postPayload/email}" />
+				<Label text="Reg Date/GST No" />
+				<Input value="{vendorModel>/postPayload/regDate}" />
+			</f:content>
+		</f:SimpleForm>
+
+		<Table id="idTable" items="{vendorModel>/vendor}">
+			<columns>
+				<Column>
+				<Label text="Company Name"></Label>
+				</Column>
+				<Column>
+				<Label text="First Name"></Label>
+				</Column>
+				<Column>
+				<Label text="Last Name"></Label>
+				</Column>
+				<Column>
+				<Label text="Website"></Label>
+				</Column>
+				<Column>
+				<Label text="Email"></Label>
+				</Column>
+				<Column>
+				<Label text="UPIN"></Label>
+				</Column>
+			</columns>
+			<items>
+				<ColumnListItem>
+					<Text text="{vendorModel>companyName}"></Text>
+					<Text text="{vendorModel>firstName}"></Text>
+					<Text text="{vendorModel>lastName}"></Text>
+					<Text text="{vendorModel>website}"></Text>
+					<Text text="{vendorModel>email}"></Text>
+					<Text text="{vendorModel>regDate}"></Text>
+				</ColumnListItem>
+			</items>
+		</Table>
+		
+		<footer>
+			<Toolbar>
+				<ToolbarSpacer/>
+				<Button text="Save" press="onSave"></Button>
+				<Button text="Load Data" press="onLoadData"></Button>
+			</Toolbar>
+		</footer>
+	</Page>
+</mvc:View>
